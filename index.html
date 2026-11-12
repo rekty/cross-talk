@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Cross Talk — two models, one conversation</title>
+<meta name="description" content="Set a scene, pick two models and watch them interview, argue or negotiate each other turn by turn. Every turn is one chat completion on your own Pollen." />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header class="bar">
+  <a class="brand" href="./">Cross Talk</a>
+  <p class="tag">Two models. One conversation. No human in the middle.</p>
+  <button id="pollen" class="pill" type="button">Connect Pollen</button>
+</header>
+
+<main>
+  <section class="setup">
+    <label class="eyebrow" for="topic">The situation</label>
+    <textarea id="topic" rows="2" maxlength="240" placeholder="A startup interviewing its first engineer.">A startup interviewing its first engineer.</textarea>
+
+    <div class="row"><div id="scenes" class="chips" aria-label="Scenes"></div></div>
+
+    <div class="row duo">
+      <label class="field"><span>A · speaks first</span><select id="model-a"></select></label>
+      <label class="field"><span>B</span><select id="model-b"></select></label>
+      <label class="field"><span>Turns</span><select id="turns">
+        <option value="2">2</option>
+        <option value="4">4</option>
+        <option value="6" selected>6</option>
+        <option value="8">8</option>
+        <option value="10">10</option>
+        <option value="12">12</option>
+      </select></label>
+      <button id="run" class="go" type="button">Start the conversation</button>
+    </div>
+
+    <p class="hint" id="hint">
+      Each turn is one chat completion paid from your own Pollen — six short turns usually cost a
+      fraction of one Pollen. Nothing is cached and no turn is written by the page.
+    </p>
+  </section>
+
+  <section id="stage" class="stage" aria-live="polite"></section>
+
+  <section class="totalbar">
+    <span id="total">No turns yet.</span>
+    <button id="stop" class="ghost" type="button" hidden>Stop after this turn</button>
+  </section>
+
+  <section class="about">
+    <h2>Why this exists</h2>
+    <p>One model answering a question tells you what one model thinks. Two models answering
+      <em>each other</em> tells you something else: who opens, who concedes, who repeats the
+      question back, who invents a number under pressure. The page only relays the transcript —
+      every line on screen came from the model named above it, in the order it was spoken.</p>
+    <p>Every turn spends the reader's own Pollen through
+      <a href="https://github.com/pollinations/pollinations/blob/main/BRING_YOUR_OWN_POLLEN.md" rel="noopener">Bring your own Pollen</a>.
+      Your key is sent nowhere except <code>gen.pollinations.ai</code> and stays in this tab's
+      session storage. The cost printed after each turn is computed from the usage the API
+      returns and the per-token prices in <code>/models</code>.</p>
+  </section>
+</main>
+
+<footer class="foot">
+  <a href="https://pollinations.ai/?ref=badge" rel="noopener">
+    <img src="https://raw.githubusercontent.com/pollinations/pollinations/main/packages/ui/src/brand/badge-made-with.svg" alt="Made with pollinations.ai" height="28" />
+  </a>
+  <button id="share" class="ghost" type="button">Copy link to this setup</button>
+</footer>
+
+<div id="modal" class="modal" hidden>
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <h2 id="modal-title">Connect your Pollen</h2>
+    <div id="modal-body"></div>
+    <button id="modal-close" class="ghost" type="button">Close</button>
+  </div>
+</div>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
