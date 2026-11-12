@@ -38,8 +38,11 @@ function el(tag, cls, text) {
 function pollenCost(model, usage) {
   const row = state.pricing.get(model);
   if (!row || !usage) return null;
-  const prompt = Number(row.promptTextTokens || 0);
-  const completion = Number(row.completionTextTokens || 0);
+  // /models nests the token prices under `pricing`; older responses had them on the row.
+  const price = row.pricing || row;
+  const prompt = Number(price.promptTextTokens || 0);
+  const completion = Number(price.completionTextTokens || 0);
+  if (!prompt && !completion) return null;
   return (usage.prompt_tokens || 0) * prompt + (usage.completion_tokens || 0) * completion;
 }
 
