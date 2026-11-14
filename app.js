@@ -8,13 +8,15 @@ import {
 } from "./shared/room.js";
 
 // One model per lab, so A and B never quietly turn into the same lab.
+// Every entry is free (`paid_only: false` on GET /models). Seat B is the default
+// second speaker, and a paid default would 402 a visitor on free Pollen on turn two.
 const MODELS = [
   ["openai/gpt-5.4-nano", "A · OpenAI gpt-5.4-nano"],
-  ["anthropic/claude-haiku-5.5", "B · Anthropic haiku-5.5"],
-  ["google/gemini-4-argon", "C · Google gemini-4-argon"],
-  ["meta/muse-wonder-1.0", "D · Meta muse-wonder"],
-  ["deepseek/deepseek-v4.1-flash-1017", "E · DeepSeek v4.1-flash"],
-  ["stepfun/step-5-preview", "F · StepFun step-5"],
+  ["meta/muse-spark-open", "B · Meta muse-spark-open"],
+  ["deepseek/deepseek-v4.1-flash", "C · DeepSeek v4.1-flash"],
+  ["mistralai/mistral-large-3", "D · Mistral large-3"],
+  ["x-ai/grok-4.6", "E · xAI grok-4.6"],
+  ["nvidia/nemotron-3.5-lightning", "F · NVIDIA nemotron-3.5"],
 ];
 
 const $ = (id) => document.getElementById(id);

@@ -36,8 +36,10 @@ Six short turns usually come to a fraction of one Pollen.
 
 One per lab, so A and B never quietly become the same lab:
 
-`openai/gpt-5.4-nano` · `anthropic/claude-haiku-5.5` · `google/gemini-4-argon` ·
-`meta/muse-wonder-1.0` · `deepseek/deepseek-v4.1-flash-1017` · `stepfun/step-5-preview`
+`openai/gpt-5.4-nano` · `meta/muse-spark-open` · `deepseek/deepseek-v4.1-flash` ·
+`mistralai/mistral-large-3` · `x-ai/grok-4.6` · `nvidia/nemotron-3.5-lightning`
+
+All six are free (`paid_only: false`), so a visitor on free Pollen can run any pairing.
 
 ## Files
 

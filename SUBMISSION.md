@@ -26,8 +26,9 @@ Static site only: index.html, app.js, style.css, shared/*.js. No backend, no
 server-side secret, no database.
 
 - Two labs, one transcript. A and B are picked independently from
-  openai/gpt-5.4-nano, anthropic/claude-haiku-5.5, google/gemini-4-argon,
-  meta/muse-wonder-1.0, deepseek/deepseek-v4.1-flash-1017, stepfun/step-5-preview.
+  openai/gpt-5.4-nano, meta/muse-spark-open, deepseek/deepseek-v4.1-flash,
+  mistralai/mistral-large-3, x-ai/grok-4.6, nvidia/nemotron-3.5-lightning — all free
+  according to GET /models, so free Pollen can run every pairing.
 - Calls. Each turn is one browser POST https://gen.pollinations.ai/v1/chat/completions
   with the transcript so far. shared/room.js builds the messages and gives the
   speaking model its own past lines as `assistant` and the other side's as `user`,
